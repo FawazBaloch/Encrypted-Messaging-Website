@@ -1,0 +1,26 @@
+# requirements.txt - Python Package Dependencies
+# Install all packages with: pip install -r requirements.txt
+
+# Flask - Web framework for HTTP server
+# Handles routes, requests, and responses
+Flask==3.0.0
+
+# Flask-CORS - Cross-Origin Resource Sharing
+# Allows frontend (running on different port) to call backend APIs
+Flask-CORS==4.0.0
+
+# PyJWT - JSON Web Token implementation
+# Creates and verifies authentication tokens
+PyJWT==2.8.0
+
+# bcrypt - Password hashing library
+# Securely hashes passwords (one-way encryption)
+bcrypt==4.1.2
+
+# pycryptodome - Cryptography library
+# Provides AES, RSA, and other encryption algorithms
+pycryptodome==3.20.0
+
+# websockets - WebSocket protocol implementation
+# Enables real-time bidirectional communication
+websockets==12.0

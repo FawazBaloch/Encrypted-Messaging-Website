@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Secure SMS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Admin dashboard for viewing encrypted message logs -->
+    <div class="admin-container">
+        <!-- Header -->
+        <div class="admin-header">
+            <h1>👨‍💼 Admin Dashboard</h1>
+            <button id="logout-button" class="button button-small">Logout</button>
+        </div>
+        
+        <!-- Banner for showing messages -->
+        <div id="message-banner" class="banner" style="display: none;"></div>
+
+        <!-- Optional security notice (useful for demo) -->
+        <div class="alert alert-warning">
+            <strong>⚠️ Notice:</strong> Admin can only view encrypted payloads (ciphertext).  
+            Files and messages remain encrypted end-to-end; plaintext is not available here.
+        </div>
+        
+        <!-- Filter controls -->
+        <div class="filter-panel">
+            <h3>Filter Logs</h3>
+            <div class="filter-controls">
+                <!-- Filter by sender -->
+                <div class="form-group">
+                    <label for="sender-filter">Sender</label>
+                    <select id="sender-filter">
+                        <option value="">All Senders</option>
+                    </select>
+                </div>
+                
+                <!-- Filter by receiver -->
+                <div class="form-group">
+                    <label for="receiver-filter">Receiver</label>
+                    <select id="receiver-filter">
+                        <option value="">All Receivers</option>
+                    </select>
+                </div>
+                
+                <!-- Action buttons -->
+                <div class="form-group">
+                    <button id="apply-filter" class="button button-primary">Apply Filter</button>
+                    <button id="clear-filter" class="button button-secondary">Clear Filter</button>
+                    <button id="download-csv" class="button button-success">Download CSV</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Statistics summary -->
+        <div class="stats-panel">
+            <div class="stat-card">
+                <h4>Total Logs</h4>
+                <p id="total-messages" class="stat-number">0</p>
+            </div>
+            <div class="stat-card">
+                <h4>Unique Senders</h4>
+                <p id="unique-senders" class="stat-number">0</p>
+            </div>
+            <div class="stat-card">
+                <h4>Unique Receivers</h4>
+                <p id="unique-receivers" class="stat-number">0</p>
+            </div>
+        </div>
+        
+        <!-- Logs table -->
+        <div class="logs-container">
+            <h3>Encrypted Logs (Messages + Files)</h3>
+            <div class="table-wrapper">
+                <table id="logs-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Sender</th>
+                            <th>Receiver</th>
+                            <th>Type</th>
+                            <th>File Name</th>
+                            <th>File Size</th>
+                            <th>Encrypted Payload</th>
+                            <th>Encrypted AES Key</th>
+                            <th>IV</th>
+                            <th>Timestamp</th>
+                        </tr>
+                    </thead>
+                    <tbody id="logs-tbody">
+                        <tr>
+                            <td colspan="10" class="loading">Loading logs...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <script src="admin.js"></script>
+</body>
+</html>

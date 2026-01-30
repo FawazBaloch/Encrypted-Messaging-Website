@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Secure SMS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Registration page for new users -->
+    <div class="container">
+        <div class="card">
+            <!-- Back button to return to home -->
+            <a href="index.html" class="back-button">← Back</a>
+            
+            <h1>Create Account</h1>
+            
+            <!-- Banner for showing success/error messages -->
+            <div id="message-banner" class="banner" style="display: none;"></div>
+            
+            <!-- Registration form -->
+            <form id="register-form" autocomplete="off">
+                
+                <!-- Username input -->
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input 
+                        type="text" 
+                        id="username" 
+                        name="username" 
+                        required 
+                        placeholder="Choose a unique username"
+                        autocomplete="off"
+                        autocorrect="off"
+                        autocapitalize="off"
+                        spellcheck="false"
+                    >
+                </div>
+                
+                <!-- Password input -->
+                <div class="form-group">
+                    <label for="password">Password</label>
+
+                    <!-- 🔥 Added wrapper + toggle icon -->
+                    <div class="password-wrapper">
+                        <input 
+                            type="password" 
+                            id="password" 
+                            name="password" 
+                            required 
+                            placeholder="Create a strong password"
+                            autocomplete="new-password"
+                            autocorrect="off"
+                            autocapitalize="off"
+                            spellcheck="false"
+                        >
+                        <span class="toggle-password" data-target="password">👁️</span>
+                    </div>
+
+                    <!-- Password requirements list -->
+                    <small class="form-hint">
+                        Password must contain:
+                        <ul>
+                            <li>At least 8 characters</li>
+                            <li>1 uppercase letter</li>
+                            <li>1 lowercase letter</li>
+                            <li>1 digit</li>
+                            <li>1 special character (!@#$%^&*)</li>
+                        </ul>
+                    </small>
+                </div>
+                
+                <!-- Confirm password input -->
+                <div class="form-group">
+                    <label for="confirm-password">Confirm Password</label>
+
+                    <!-- 🔥 Added wrapper + toggle icon -->
+                    <div class="password-wrapper">
+                        <input 
+                            type="password" 
+                            id="confirm-password" 
+                            name="confirm-password" 
+                            required 
+                            placeholder="Re-enter your password"
+                            autocomplete="new-password"
+                            autocorrect="off"
+                            autocapitalize="off"
+                            spellcheck="false"
+                        >
+                        <span class="toggle-password" data-target="confirm-password">👁️</span>
+                    </div>
+                </div>
+                
+                <!-- Submit button -->
+                <button type="submit" class="button button-primary">Register</button>
+            </form>
+            
+            <!-- Link to login page for existing users -->
+            <p class="note">
+                Already have an account? <a href="login.html">Login here</a>
+            </p>
+        </div>
+    </div>
+    
+    <script src="register.js"></script>
+
+    <!-- 🔥 Add the password toggle script -->
+    <script>
+        document.querySelectorAll(".toggle-password").forEach(icon => {
+            icon.addEventListener("click", () => {
+                const targetId = icon.getAttribute("data-target");
+                const input = document.getElementById(targetId);
+
+                if (input.type === "password") {
+                    input.type = "text";
+                    icon.textContent = "🙈";  // hide icon
+                } else {
+                    input.type = "password";
+                    icon.textContent = "👁️";  // show icon
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat - Secure SMS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <h2>🔐 Secure Chat</h2>
+            <div class="user-info">
+                <span id="current-user">Loading...</span>
+                <button id="logout-button" class="button button-small">Logout</button>
+            </div>
+        </div>
+
+        <div id="message-banner" class="banner" style="display: none;"></div>
+
+        <div class="chat-layout">
+            <div class="sidebar">
+                <h3>Users</h3>
+
+                <div class="user-search">
+                    <input
+                        type="text"
+                        id="user-search-input"
+                        class="user-search-input"
+                        placeholder="Search or start chat… (username)"
+                        autocomplete="off"
+                        autocorrect="off"
+                        autocapitalize="off"
+                        spellcheck="false"
+                    />
+                    <button type="button" id="user-search-button" class="user-search-button">
+                        Search
+                    </button>
+                </div>
+
+                <div id="user-list" class="user-list"></div>
+            </div>
+
+            <div class="chat-area">
+                <div id="messages" class="messages">
+                    <p class="empty-state">Select a user to start chatting</p>
+                </div>
+
+                <form id="message-form" class="message-form" style="display: none;">
+                    <input 
+                        type="text" 
+                        id="message-input" 
+                        placeholder="Type your message..."
+                        autocomplete="off"
+                        autocorrect="off"
+                        autocapitalize="off"
+                        spellcheck="false"
+                    >
+
+                    <input type="file" id="file-input" style="display:none;" />
+
+                    <button type="button" id="attach-file-button" class="button button-secondary">📎 Attach</button>
+
+                    <!-- ✅ Single Send button now handles BOTH text + file -->
+                    <button type="submit" id="send-button" class="button button-primary">Send 🔒</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="chat.js"></script>
+</body>
+</html>
